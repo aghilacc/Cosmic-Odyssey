@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.image-container {
+    position: relative;
+    width: 300px; /* Adjust size as needed */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Black transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease; /* Smooth fade effect */
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.image-container:hover .overlay {
+    opacity: 1; /* Show the black transparent overlay on hover */
+}

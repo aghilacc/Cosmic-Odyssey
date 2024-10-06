@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Collision Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("bck3.jpeg");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+        .home-button {
+            background-color: #008CBA; /* Blue background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 1.2rem;
+        }
+        .question {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .options button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .options button:hover {
+            background-color: #45a049;
+        }
+        .result, .correct-answer {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        .correct-answer {
+            color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Galaxy Collision Quiz</h1>
+        <p>Test your knowledge about galaxy collisions in this interactive quiz!</p>
+        <div id="quiz-container">
+            <div class="question" id="question">Question will appear here</div>
+            <div class="options">
+                <button onclick="checkAnswer(0)">Option 1</button>
+                <button onclick="checkAnswer(1)">Option 2</button>
+                <button onclick="checkAnswer(2)">Option 3</button>
+                <button onclick="checkAnswer(3)">Option 4</button>
+            </div>
+            <div class="result" id="result"></div>
+            <div class="correct-answer" id="correct-answer"></div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What happens when galaxies collide?",
+                options: [
+                    "They explode violently.",
+                    "They pass through each other, interacting gravitationally.",
+                    "They completely merge without any interaction.",
+                    "They destroy each other."
+                ],
+                correct: 1
+            },
+            {
+                question: "How long does a galaxy collision typically take?",
+                options: [
+                    "A few years",
+                    "Thousands of years",
+                    "Millions of years",
+                    "A few hours"
+                ],
+                correct: 2
+            },
+            {
+                question: "What is the name of the future collision between the Milky Way and Andromeda?",
+                options: [
+                    "The Great Collapse",
+                    "Milky-Draco Fusion",
+                    "Andromeda Crash",
+                    "Milkomeda"
+                ],
+                correct: 3
+            },
+            {
+                question: "Which type of galaxies are most likely to collide?",
+                options: [
+                    "Elliptical galaxies",
+                    "Irregular galaxies",
+                    "Dwarf galaxies",
+                    "Spiral galaxies"
+                ],
+                correct: 3
+            },
+            {
+                question: "How do galaxy collisions affect star formation?",
+                options: [
+                    "Star formation slows down significantly.",
+                    "New stars form at a much faster rate.",
+                    "Star formation is unaffected.",
+                    "Stars get ejected from the galaxy."
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionElement = document.getElementById('question');
+            const resultElement = document.getElementById('result');
+            const correctAnswerElement = document.getElementById('correct-answer');
+            resultElement.innerText = "";
+            correctAnswerElement.innerText = "";
+            questionElement.innerText = quizData[currentQuestion].question;
+            const options = document.querySelectorAll('.options button');
+            options.forEach((button, index) => {
+                button.innerText = quizData[currentQuestion].options[index];
+            });
+        }
+
+        function checkAnswer(selected) {
+            const resultElement = document.getElementById('result');
+            const correctAnswerElement = document.getElementById('correct-answer');
+
+            if (selected === quizData[currentQuestion].correct) {
+                resultElement.innerText = "Correct!";
+                resultElement.style.color = "lightgreen";
+                score++;
+            } else {
+                resultElement.innerText = "Wrong!";
+                resultElement.style.color = "red";
+                correctAnswerElement.innerText = `Correct answer: ${quizData[currentQuestion].options[quizData[currentQuestion].correct]}`;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                setTimeout(loadQuestion, 2000);
+            } else {
+                setTimeout(showFinalScore, 2000);
+            }
+        }
+
+        function showFinalScore() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = `<h2>Quiz Complete!</h2><p>Your Score: ${score} / ${quizData.length}</p>`;
+        }
+
+        window.onload = loadQuestion;
+    </script>
+    <a href="GalaxyCollision.html" class="home-button">Go Back to the Previous Page</a>
+</body>
+</html>

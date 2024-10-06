@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><h3>Stellar Evolution Quiz</h3></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color:#ff0066;
+      background-image: url("bckgrnd.jpg");
+      color: black;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin: 50px auto;
+      padding: 20px;
+      max-width: 600px;
+      background: linear-gradient(to bottom right, #993300 0%, #ff66cc 100%);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #f39c12;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    .answers label {
+      display: block;
+      margin: 10px 0;
+    }
+    .btn {
+      background-color: #f39c12;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #e67e22;
+    }
+    .result {
+      display: none;
+      margin-top: 20px;
+    } .home-button {
+            background-color: #008CBA; /* Blue background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Stellar Evolution Quiz</h1>
+  
+  <div class="quiz">
+    <!-- Question 1 -->
+    <div class="question">
+      <p>1. What is the first stage of stellar evolution for a star?</p>
+      <div class="answers">
+        <label><input type="radio" name="q1" value="0"> Main Sequence</label>
+        <label><input type="radio" name="q1" value="1"> Protostar</label>
+        <label><input type="radio" name="q1" value="0"> Red Giant</label>
+        <label><input type="radio" name="q1" value="0"> White Dwarf</label>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <p>2. What triggers a star to enter the Red Giant phase?</p>
+      <div class="answers">
+        <label><input type="radio" name="q2" value="0"> Increase in gravity</label>
+        <label><input type="radio" name="q2" value="1"> Hydrogen runs out in the core</label>
+        <label><input type="radio" name="q2" value="0"> Collision with another star</label>
+        <label><input type="radio" name="q2" value="0"> Core temperature decreases</label>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <p>3. What is the end stage of a low-mass star?</p>
+      <div class="answers">
+        <label><input type="radio" name="q3" value="0"> Black Hole</label>
+        <label><input type="radio" name="q3" value="0"> Neutron Star</label>
+        <label><input type="radio" name="q3" value="1"> White Dwarf</label>
+        <label><input type="radio" name="q3" value="0"> Supernova</label>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+      <p>4. What event leads to the formation of a neutron star?</p>
+      <div class="answers">
+        <label><input type="radio" name="q4" value="1"> Supernova explosion</label>
+        <label><input type="radio" name="q4" value="0"> Black hole formation</label>
+        <label><input type="radio" name="q4" value="0"> Protostar collapse</label>
+        <label><input type="radio" name="q4" value="0"> Planetary nebula formation</label>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+      <p>5. What is the heaviest element produced in the core of a star before it explodes as a supernova?</p>
+      <div class="answers">
+        <label><input type="radio" name="q5" value="0"> Oxygen</label>
+        <label><input type="radio" name="q5" value="0"> Carbon</label>
+        <label><input type="radio" name="q5" value="1"> Iron</label>
+        <label><input type="radio" name="q5" value="0"> Silicon</label>
+      </div>
+    </div>
+
+    <button class="btn" onclick="submitQuiz()">Submit Answers</button>
+
+    <div class="result">
+      <h2>Your score: <span id="score"></span>/5</h2>
+   <a href="StellarEvolution.html" class="home-button">Go Back to the Previous Page</a>  </div>
+  </div>
+</div>
+ 
+<script>
+  function submitQuiz() {
+    const answers = document.querySelectorAll('input[type="radio"]:checked');
+    if (answers.length < 5) {
+      alert("Please answer all the questions.");
+      return;
+    }
+
+    let score = 0;
+    answers.forEach(answer => {
+      score += parseInt(answer.value);
+    });
+
+    document.querySelector('.result').style.display = 'block';
+    document.getElementById('score').textContent = score;
+  }
+</script>
+
+</body>
+</html>

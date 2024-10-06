@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Quiz</title>
+    <style>
+        body {
+background-image: url("galaxy.jpg");
+            font-family: Arial, sans-serif;
+            background-color: #101820;
+            color: #66ff66;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 { font-size:80px;
+            color: #ffffff;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #283747;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #1C2833;
+            border: 2px solid #ff3399;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #F2AA4C;
+            color: #101820;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #D18B3E;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .home-button {
+            background-color: #008CBA; /* Blue background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Galaxy Quiz</h1>
+    <div class="quiz-container">
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. What is the name of our galaxy?</h3>
+                <label><input type="radio" name="q1" value="a"> Andromeda</label>
+                <label><input type="radio" name="q1" value="b"> Milky Way</label>
+                <label><input type="radio" name="q1" value="c"> Whirlpool Galaxy</label>
+                <label><input type="radio" name="q1" value="d"> Triangulum Galaxy</label>
+            </div>
+
+            <div class="question">
+                <h3>2. What type of galaxy is the Milky Way?</h3>
+                <label><input type="radio" name="q2" value="a"> Elliptical</label>
+                <label><input type="radio" name="q2" value="b"> Spiral</label>
+                <label><input type="radio" name="q2" value="c"> Irregular</label>
+                <label><input type="radio" name="q2" value="d"> Lenticular</label>
+            </div>
+
+            <div class="question">
+                <h3>3. Which galaxy is closest to the Milky Way?</h3>
+                <label><input type="radio" name="q3" value="a"> Sombrero Galaxy</label>
+                <label><input type="radio" name="q3" value="b"> Large Magellanic Cloud</label>
+                <label><input type="radio" name="q3" value="c"> Andromeda</label>
+                <label><input type="radio" name="q3" value="d"> Whirlpool Galaxy</label>
+            </div>
+
+            <div class="question">
+                <h3>4. Approximately how many stars are in the Milky Way?</h3>
+                <label><input type="radio" name="q4" value="a"> 100 billion</label>
+                <label><input type="radio" name="q4" value="b"> 1 trillion</label>
+                <label><input type="radio" name="q4" value="c"> 400 billion</label>
+                <label><input type="radio" name="q4" value="d"> 500 million</label>
+            </div>
+
+            <div class="question">
+                <h3>5. What is the most common type of galaxy in the universe?</h3>
+                <label><input type="radio" name="q5" value="a"> Elliptical</label>
+                <label><input type="radio" name="q5" value="b"> Spiral</label>
+                <label><input type="radio" name="q5" value="c"> Irregular</label>
+                <label><input type="radio" name="q5" value="d"> Lenticular</label>
+            </div>
+
+            <button type="button" onclick="calculateScore()">Submit Quiz</button>
+        </form>
+
+        <div class="score" id="scoreContainer"></div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'c',
+                q4: 'c',
+                q5: 'a'
+            };
+
+            let score = 0;
+            const form = document.forms.quizForm;
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const userAnswer = form[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            document.getElementById('scoreContainer').innerText = `You scored ${score} out of ${Object.keys(answers).length}!`;
+        }
+    </script>
+<br>
+			<a href="Cosmic Odyssey.html" class="home-button">Go Back to Home Page</a>
+		
+</body>
+</html>

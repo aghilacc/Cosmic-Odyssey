@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWST: Unveiling the Cosmos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b1e3d;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-image: url('COSMOS.png'); /* Add JWST-themed image */
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #05132b;
+            padding: 20px;
+            color: #ffcc00;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+         .quiz-button {
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+		.home-button {
+            background-color: #008CBA; /* Blue background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .gallery img {
+            animation: fadeIn 1.5s ease;
+        }
+        
+    </style>
+</head>
+
+<body>
+ 
+    <header>
+        <h1>James Webb Space Telescope</h1>
+        <p>Unveiling the Cosmic Secrets through Infrared Eyes</p>
+    </header>
+    Play the ambient music!<br>
+    <audio controls>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <section>
+		 <h1>James Webb Space Telescope</h1>
+		 <center><font style={color:"#FF000F"}>Click and drag to enjoy 3D-JWST!</font></center>
+		  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/ri2XQKYD4VWzr7Sk/scene.splinecode"></spline-viewer>
+        <h2>Helping Hands of JWST</h2>
+        
+        <p>The space-based component of the James Webb Space Telescope system, known as the Observatory, is made up of the Optical Telescope Element (OTE), the Integrated Science Instrument Module (ISIM), the sunshield, and the spacecraft bus.</p>
+
+        <div class="gallery">
+            <img src="webb-ote-isim.webp" alt="OTE" >
+            <div class="text">The OTE is the heart of the JWST and is responsible for gathering and focusing light from astronomical objects. It consists of a large primary mirror segmented into 18 hexagonal mirrors, which together form a 6.5-meter diameter mirror, allowing for high-resolution observations.</div>
+            <img src="https://science.nasa.gov/wp-content/uploads/2023/09/isim-overview.jpg?w=1536&format=webp" alt="ISIM">
+            <div class="text">The Integrated Science Instrument Module (ISIM) is a crucial component of the James Webb Space Telescope (JWST), housing its four main scientific instruments—Near Infrared Camera (NIRCam), Near Infrared Spectrograph (NIRSpec), Mid-Infrared Instrument (MIRI), and Fine Guidance Sensor/Near
+             InfraRed Imager and Slitless Spectrograph (FGS/NIRISS)—while providing thermal control and vibration isolation 
+             to ensure effective operation in space for exploring the universe.</div>
+            <img src="https://science.nasa.gov/wp-content/uploads/2024/02/50218488391-aaaed10f29-k.jpg?w=1536&format=webp" alt="Sun Sheild">
+            <div class="text">The sunshield protects the telescope from solar radiation and keeps it cool by blocking heat and light from the Sun, Earth, and Moon. This allows the instruments to operate at very low temperatures, which is essential for infrared observations.</div>
+</div>
+       
+    </section>
+
+
+    <section style="background-color: #142853;">
+        <h2>Major Discoveries</h2>
+        <p>Since its launch, JWST has revolutionized our understanding of the universe with high-resolution infrared images. Click the images to see the topics.</p>
+        <div class="gallery">
+			<a href="StellarEvolution.html">
+				<img src="https://stsci-opo.org/STScI-01H4491MFFYDF52V1ZATNMCAAK.png" alt="Stellar Evolution" title="Stellar Evolution">
+			</a>
+				
+            <a href="Galaxy.html">
+				<img src="https://webbtelescope.org/files/live/sites/webb/files/home/webb-science/galaxies-over-time/_images/wt-Sombrero-Galaxy.jpg?t=tn2400" alt="Galaxy" title="Galaxy">
+			</a>
+			
+               <a href="GalaxyCollision.html">
+				   <img src="https://science.nasa.gov/wp-content/uploads/2024/09/webb-stsci-01j7493cj4zg05r3txkm6be0s6-2k.png?w=1536&format=webp" alt="Galaxy Collision"  title="Galaxy Collision">
+			</a>
+           
+        </div>
+    </section>
+    <a href="JQ.html" class="quiz-button">Take the Quiz on James Webb Space Telescope!</a><br>
+
+    <footer>
+        <p>&copy; 2024 Stellar Souls
+        </p>
+    </footer>
+
+</body>
+
+</html>
